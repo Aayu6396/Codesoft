@@ -1,0 +1,231 @@
+job-board/
+|-- client/
+|   |-- public/
+|   |   |-- index.html
+|   |-- src/
+|       |-- components/
+|           |-- Home.js
+|           |-- JobListings.js
+|           |-- JobDetail.js
+|           |-- EmployerDashboard.js
+|           |-- CandidateDashboard.js
+|           |-- ApplyJob.js
+|       |-- App.js
+|       |-- index.js
+|-- server/
+|   |-- controllers/
+|       |-- jobController.js
+|       |-- userController.js
+|   |-- models/
+|       |-- Job.js
+|       |-- User.js
+|   |-- routes/
+|       |-- jobRoutes.js
+|       |-- userRoutes.js
+|   |-- server.js
+|-- .env
+|-- package.json
+|-- README.md
+
+import React from 'react';
+
+const Home = () => {
+  return (
+    <div>
+      <h2>Welcome to the Job Board</h2>
+      {/* Featured job listings */}
+    </div>
+  );
+}
+
+export default Home;
+
+import React from 'react';
+
+const JobListings = () => {
+
+  const jobListings = [];
+
+  return (
+    <div>
+      <h2>Job Listings</h2>
+      {/* Display job listings */}
+    </div>
+  );
+}
+
+export default JobListings;
+
+import React from 'react';
+
+const JobDetail = ({ jobId }) => {
+
+  const jobDetails = {};
+
+  return (
+    <div>
+      <h2>Job Detail</h2>
+      {/* Display job details */}
+    </div>
+  );
+}
+
+export default JobDetail;
+
+import React from 'react';
+
+const EmployerDashboard = () => {
+
+
+  return (
+    <div>
+      <h2>Employer Dashboard</h2>
+      {/* Employer account and job posting forms */}
+    </div>
+  );
+}
+
+export default EmployerDashboard;
+
+import React from 'react';
+
+const CandidateDashboard = () => {
+
+
+  return (
+    <div>
+      <h2>Candidate Dashboard</h2>
+      {/* Candidate profile and job application history */}
+    </div>
+  );
+}
+
+export default CandidateDashboard;
+
+import React from 'react';
+
+const ApplyJob = ({ jobId }) => {
+
+
+  return (
+    <div>
+      <h2>Apply for Job</h2>
+      {/* Job application form */}
+    </div>
+  );
+}
+
+export default ApplyJob;
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/Home';
+import JobListings from './components/JobListings';
+import JobDetail from './components/JobDetail';
+import EmployerDashboard from './components/EmployerDashboard';
+import CandidateDashboard from './components/CandidateDashboard';
+import ApplyJob from './components/ApplyJob';
+
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/jobs" component={JobListings} />
+        <Route exact path="/jobs/:id" component={JobDetail} />
+        <Route exact path="/employer-dashboard" component={EmployerDashboard} />
+        <Route exact path="/candidate-dashboard" component={CandidateDashboard} />
+        <Route exact path="/apply/:id" component={ApplyJob} />
+      </Switch>
+    </Router>
+  );
+}
+
+export default App;
+
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const jobRoutes = require('./routes/jobRoutes');
+const userRoutes = require('./routes/userRoutes');
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+mongoose.connect('mongodb://localhost:27017/jobboard', { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+app.use(bodyParser.json());
+app.use('/api/jobs', jobRoutes);
+app.use('/api/users', userRoutes);
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+const express = require('express');
+const router = express.Router();
+const jobController = require('../controllers/jobController');
+
+router.get('/', jobController.getAllJobs);
+router.get('/:id', jobController.getJobById);
+router.post('/', jobController.createJob);
+
+module.exports = router;
+const Job = require('../models/Job');
+
+exports.getAllJobs = async (req, res) => {
+  try {
+    const jobs = await Job.find();
+    res.json(jobs);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+exports.getJobById = async (req, res) => {
+  try {
+    const job = await Job.findById(req.params.id);
+    res.json(job);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+exports.createJob = async (req, res) => {
+  const { title, description, requirements, employerId } = req.body;
+
+  try {
+    const job = await Job.create({ title, description, requirements, employerId });
+    res.status(201).json(job);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+const mongoose = require('mongoose');
+
+const jobSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  requirements: {
+    type: String,
+    required: true,
+  },
+  employerId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
+});
+
+const Job = mongoose.model('Job', jobSchema);
+
+module.exports = Job;
+const express = require('express');
+const router = express.Router();
+const userController = require('../controllers/userController');
