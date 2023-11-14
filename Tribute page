@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. APJ Abdul Kalam</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Dr. APJ Abdul Kalam</h1>
+    </header>
+
+    <main>
+        <img src="kalam.jpg" alt="Dr. APJ Abdul Kalam">
+        <p>
+          
+  <title>Cursive Font</title>
+          
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+      
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"></head>
+<style type="text/css">
+  
+p{
+font-family: 'Dancing Script', cursive;
+}
+  
+</style>
+<body>
+<p>Dr. APJ Abdul Kalam, India's beloved Missile Man, was known for his remarkable qualities. Here are ten
+            aspects that make him truly admirable
+            <br>
+            <br>
+           Visionary Leadership: Dr. Kalam was a visionary leader, always inspiring others to dream big and
+                work towards a brighter future.
+          <br>
+          <br>
+           Humility: Despite his numerous achievements, Dr. Kalam remained humble and approachable, earning
+                the love and respect of people from all walks of life.
+          <br>
+          <br>
+           Passion for Education:He was a strong advocate for education, believing it to be the key to
+                individual and national development.
+          <br>
+          <br>
+           Scientific Prowess:As a scientist, Dr. Kalam made significant contributions to India's space and
+                defense capabilities, showcasing his brilliance in the field.
+          <br>
+          <br>
+           Courage and Resilience: In the face of challenges, Dr. Kalam displayed unwavering courage and
+                resilience, becoming a source of inspiration for many.
+          <br>
+          <br>
+           Love for Children: Dr. Kalam had a special connection with children, often interacting with them
+                and encouraging their curiosity and creativity.
+          <br>
+          <br>
+           Patriotism: His deep love for the country and dedication to its progress made him a true patriot
+                and national hero.
+          <br>
+          <br>
+           Ethical Values: Dr. Kalam emphasized the importance of ethics and moral values in every aspect of
+                life, setting a high standard for personal conduct.
+          <br>
+          <br>
+           Innovative Thinking: He promoted innovative thinking and problem-solving, urging individuals to
+                find creative solutions to challenges.</li>
+          <br>
+          <br>
+           Positive Attitude: Dr. Kalam's positive attitude and optimistic outlook on life continue to
+                inspire countless individuals to overcome obstacles with a smile.</p>
+         
+            </main>
+
+    <footer>
+        © 2023 Dr. APJ Abdul Kalam Tribute | Aayushi
+    </footer>
+            
+            
+</body>
+</html>
